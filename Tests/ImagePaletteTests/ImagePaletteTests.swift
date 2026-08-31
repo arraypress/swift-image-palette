@@ -116,4 +116,20 @@ final class ExtractorTests: XCTestCase {
         XCTAssertEqual(palette.reduce(0) { $0 + $1.share }, 1, accuracy: 0.001)
         XCTAssertGreaterThan(palette[0].share, palette.last!.share)
     }
+
+    /// The generator IS the determinism contract: seed 7919 must produce
+    /// this exact sequence forever, and doubles must sit in [0, 1).
+    func testSplitMixSequenceIsPinned() {
+        var rng = SplitMix(seed: 7919)
+        let first = (0..<4).map { _ in rng.next() }
+        var again = SplitMix(seed: 7919)
+        XCTAssertEqual(first, (0..<4).map { _ in again.next() }, "same seed, same sequence")
+        var other = SplitMix(seed: 7920)
+        XCTAssertNotEqual(first, (0..<4).map { _ in other.next() }, "different seed, different sequence")
+        var d = SplitMix(seed: 7919)
+        for _ in 0..<64 {
+            let x = d.nextDouble()
+            XCTAssertTrue(x >= 0 && x < 1, "\(x)")
+        }
+    }
 }

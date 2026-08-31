@@ -59,7 +59,7 @@ public enum PaletteExtractor {
     public static func extract(from samples: [OKLab], options: PaletteOptions) -> [Swatch] {
         guard !samples.isEmpty else { return [] }
         let k = max(1, min(options.count, samples.count))
-        var centres = seedCentres(samples, k: k, seed: options.seed)
+        var centres = Self.seedCentres(samples, k: k, seed: options.seed)
         var assignment = [Int](repeating: 0, count: samples.count)
 
         // Lloyd's iterations, to a fixed cap: convergence is fast on
@@ -158,16 +158,5 @@ public enum PaletteExtractor {
         return centres
     }
 
-    struct SplitMix {
-        var state: UInt64
-        init(seed: UInt64) { state = seed }
-        mutating func next() -> UInt64 {
-            state &+= 0x9E3779B97F4A7C15
-            var z = state
-            z = (z ^ (z >> 30)) &* 0xBF58476D1CE4E5B9
-            z = (z ^ (z >> 27)) &* 0x94D049BB133111EB
-            return z ^ (z >> 31)
-        }
-        mutating func nextDouble() -> Double { Double(next() >> 11) / Double(1 << 53) }
-    }
+
 }
