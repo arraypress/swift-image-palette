@@ -40,22 +40,7 @@ public struct Swatch: Sendable, Equatable, Codable {
     public var rgb: String { "rgb(\(red), \(green), \(blue))" }
 
     /// `hsl(h, s%, l%)` — the CSS numbers, from sRGB.
-    public var hsl: String {
-        let r = Double(red) / 255, g = Double(green) / 255, b = Double(blue) / 255
-        let maxC = max(r, g, b), minC = min(r, g, b), d = maxC - minC
-        let l = (maxC + minC) / 2
-        var h = 0.0, s = 0.0
-        if d > 0 {
-            s = d / (1 - abs(2 * l - 1))
-            switch maxC {
-            case r: h = 60 * (((g - b) / d).truncatingRemainder(dividingBy: 6))
-            case g: h = 60 * ((b - r) / d + 2)
-            default: h = 60 * ((r - g) / d + 4)
-            }
-            if h < 0 { h += 360 }
-        }
-        return String(format: "hsl(%.0f, %.0f%%, %.0f%%)", h, s * 100, l * 100)
-    }
+    public var hsl: String { ColorFormats.hsl(red: red, green: green, blue: blue) }
 
     /// Whether this reads as a grey rather than a colour.
     public var isNeutral: Bool { chroma < 0.03 }

@@ -132,4 +132,15 @@ final class ExtractorTests: XCTestCase {
             XCTAssertTrue(x >= 0 && x < 1, "\(x)")
         }
     }
+
+    func testHSLConversionDirectly() {
+        // The conversion pinned with no Swatch in sight: one colour per hue
+        // sector, a neutral, and the negative-hue wrap.
+        XCTAssertEqual(ColorFormats.hsl(red: 255, green: 0, blue: 0), "hsl(0, 100%, 50%)")
+        XCTAssertEqual(ColorFormats.hsl(red: 0, green: 255, blue: 0), "hsl(120, 100%, 50%)")
+        XCTAssertEqual(ColorFormats.hsl(red: 0, green: 0, blue: 255), "hsl(240, 100%, 50%)")
+        XCTAssertEqual(ColorFormats.hsl(red: 255, green: 0, blue: 128), "hsl(330, 100%, 50%)")
+        XCTAssertEqual(ColorFormats.hsl(red: 128, green: 128, blue: 128), "hsl(0, 0%, 50%)")
+        XCTAssertEqual(ColorFormats.hsl(red: 0, green: 0, blue: 0), "hsl(0, 0%, 0%)")
+    }
 }
