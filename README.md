@@ -31,7 +31,7 @@ Synthetic pictures with known blocks: a 70 / 20 / 10 image comes back as three s
 
 ## Requirements
 
-macOS 13+ / iOS 16+ / tvOS 16+ / watchOS 9+ / visionOS 1+, Swift 6.
+macOS 14+ / iOS 17+ / tvOS 17+ / watchOS 10+ / visionOS 1+, Swift 6.
 
 ## License
 

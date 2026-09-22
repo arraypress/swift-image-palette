@@ -2,7 +2,7 @@
 //  ImageSampling.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 2026.
+//  Created by David Sherlock on 8/30/26.
 //
 //  Pixels in. A picture is drawn down to a small bitmap first: a palette
 //  is a statement about the whole, and 60,000 samples describe it as well

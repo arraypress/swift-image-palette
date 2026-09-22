@@ -2,7 +2,7 @@
 //  OKLab.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 2026.
+//  Created by David Sherlock on 8/30/26.
 //
 //  Colour distance the eye agrees with. Clustering in sRGB puts a dark blue
 //  and a black in different bins and two greens the eye cannot tell apart in

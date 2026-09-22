@@ -2,7 +2,7 @@
 //  PaletteExtractor.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 2026.
+//  Created by David Sherlock on 8/30/26.
 //
 //  Pixels to a palette: k-means in OKLab, seeded deterministically so the
 //  same picture gives the same palette on every run and every machine,

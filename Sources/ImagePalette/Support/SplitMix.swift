@@ -2,7 +2,7 @@
 //  SplitMix.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 2026.
+//  Created by David Sherlock on 8/31/26.
 //
 //  The fixed-seed generator behind k-means++ seeding. It is the reason a
 //  picture gives the same palette on every run and every machine — swap

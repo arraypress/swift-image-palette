@@ -2,7 +2,7 @@
 //  Swatch.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 2026.
+//  Created by David Sherlock on 8/30/26.
 //
 
 import Foundation

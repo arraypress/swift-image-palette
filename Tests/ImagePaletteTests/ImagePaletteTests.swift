@@ -2,7 +2,7 @@
 //  ImagePaletteTests.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 2026.
+//  Created by David Sherlock on 8/30/26.
 //
 //  Synthetic pictures with known colours and known shares, so the numbers
 //  can be asserted rather than admired.

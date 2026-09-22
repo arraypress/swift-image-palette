@@ -1,5 +1,4 @@
-// swift-tools-version: 6.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version: 6.2
 
 import PackageDescription
 
@@ -8,13 +7,13 @@ let package = Package(
     // ImageIO and CoreGraphics only — no UI framework, so this runs on every
     // Apple platform and in a headless process.
     platforms: [
-        .macOS(.v13), .iOS(.v16), .tvOS(.v16), .watchOS(.v9), .visionOS(.v1)
+        .macOS(.v14), .iOS(.v17), .tvOS(.v17), .watchOS(.v10), .visionOS(.v1)
     ],
     products: [
         .library(name: "ImagePalette", targets: ["ImagePalette"]),
     ],
     targets: [
-        .target(name: "ImagePalette"),
+        .target(name: "ImagePalette", swiftSettings: [.swiftLanguageMode(.v6)]),
         .testTarget(name: "ImagePaletteTests", dependencies: ["ImagePalette"]),
     ]
 )
