@@ -1,3 +1,7 @@
+> **This package has moved.** It is now the `ImagePalette` module of [swift-media-kit](https://github.com/arraypress/swift-media-kit), with its full
+> history. Depend on `.package(url: "https://github.com/arraypress/swift-media-kit.git", from: "0.1.0")` and the `ImagePalette` product;
+> `import ImagePalette` is unchanged. This repository is archived.
+
 # Swift Image Palette
 
 The colours of an image, with how much of it each one covers.
