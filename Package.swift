@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "ImagePalette",
+    defaultLocalization: "en",
     // ImageIO and CoreGraphics only — no UI framework, so this runs on every
     // Apple platform and in a headless process.
     platforms: [
@@ -13,7 +14,7 @@ let package = Package(
         .library(name: "ImagePalette", targets: ["ImagePalette"]),
     ],
     targets: [
-        .target(name: "ImagePalette", swiftSettings: [.swiftLanguageMode(.v6)]),
+        .target(name: "ImagePalette", resources: [.process("Localizable.xcstrings")], swiftSettings: [.swiftLanguageMode(.v6)]),
         .testTarget(name: "ImagePaletteTests", dependencies: ["ImagePalette"]),
     ]
 )

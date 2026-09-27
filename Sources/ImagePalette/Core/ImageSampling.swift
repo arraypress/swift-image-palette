@@ -23,8 +23,8 @@ public enum ImageSamplingError: Error, CustomStringConvertible, Sendable {
     /// The message for people.
     public var description: String {
         switch self {
-        case .unreadable(let url): return "\(url.path) is not an image ImageIO can read"
-        case .noPixels: return "the image has no opaque pixels to sample"
+        case .unreadable(let url): return String(localized: "\(url.path) is not an image ImageIO can read", bundle: .module, comment: "Image palette error; the value is a file path. ImageIO is the Apple framework name.")
+        case .noPixels: return String(localized: "the image has no opaque pixels to sample", bundle: .module, comment: "Image palette error: every pixel is transparent, so no colours can be taken from it.")
         }
     }
 }
