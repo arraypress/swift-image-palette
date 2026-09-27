@@ -66,10 +66,12 @@ public struct OKLab: Sendable, Equatable, Hashable {
         return (dl * dl + da * da + db * db).squareRoot()
     }
 
+    /// sRGB transfer function, encoded 0…1 channel to linear light.
     static func linear(_ c: Double) -> Double {
         c <= 0.04045 ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4)
     }
 
+    /// Inverse of ``linear(_:)``: linear light back to an encoded sRGB channel.
     static func gamma(_ c: Double) -> Double {
         c <= 0.0031308 ? 12.92 * c : 1.055 * pow(c, 1 / 2.4) - 0.055
     }

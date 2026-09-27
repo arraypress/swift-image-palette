@@ -16,7 +16,9 @@ import ImageIO
 
 /// Why an image could not be sampled.
 public enum ImageSamplingError: Error, CustomStringConvertible, Sendable {
+    /// ImageIO could not open or decode the file.
     case unreadable(URL)
+    /// Every pixel is transparent, so there is nothing to sample.
     case noPixels
     /// The message for people.
     public var description: String {
@@ -30,17 +32,11 @@ public enum ImageSamplingError: Error, CustomStringConvertible, Sendable {
 /// Reading a picture into the pixels a palette is made from.
 public enum ImageSampling {
 
-    /// Loads any image ImageIO reads — PNG, JPEG, HEIC, TIFF, GIF, WebP,
-    /// PDF's first page, RAW.
+    /// Loads any image ImageIO reads — PNG, JPEG, HEIC, TIFF, GIF, WebP, PDF's first page, RAW.
     ///
-    /// With `maxSide`, the decoder itself produces a picture no larger than
-    /// that on its long side, with the EXIF orientation applied. That is
-    /// not a convenience: a 6000-pixel HEIC decodes in a fraction of the
-    /// time when the decoder is told the size it is wanted at, and the
-    /// plain `CGImageSourceCreateImageAtIndex` ignores orientation, so a
-    /// portrait phone photo would be sampled sideways. Sideways changes no
-    /// share, but the un-rotated image is also what a caller drawing it
-    /// would expect. Without `maxSide` the full image comes back as stored.
+    /// With `maxSide`, the decoder itself scales to that long side and applies EXIF orientation:
+    /// far faster for large photos, and the plain decode would leave portraits sideways.
+    /// Without `maxSide` the full image comes back as stored.
     public static func load(_ url: URL, maxSide: Int? = nil) throws -> CGImage {
         let options = [kCGImageSourceShouldCache: false] as CFDictionary
         guard let source = CGImageSourceCreateWithURL(url as CFURL, options) else {

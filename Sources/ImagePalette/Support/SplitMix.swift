@@ -11,6 +11,7 @@
 //  Copyright © 2026 ArrayPress Limited. MIT licence.
 //
 
+/// SplitMix64: a tiny deterministic generator, so palettes never depend on system randomness.
 struct SplitMix {
     var state: UInt64
     init(seed: UInt64) { state = seed }
@@ -21,5 +22,6 @@ struct SplitMix {
         z = (z ^ (z >> 27)) &* 0x94D049BB133111EB
         return z ^ (z >> 31)
     }
+    /// A uniform value in 0..<1 built from the top 53 bits.
     mutating func nextDouble() -> Double { Double(next() >> 11) / Double(1 << 53) }
 }
