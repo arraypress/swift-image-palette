@@ -2,11 +2,12 @@
 //  ImageSampling.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 8/30/26.
-//
 //  Pixels in. A picture is drawn down to a small bitmap first: a palette
 //  is a statement about the whole, and 60,000 samples describe it as well
 //  as 20 million while making the clustering instant.
+//
+//  Created by David Sherlock on 8/30/26.
+//  Copyright © 2026 ArrayPress Limited. MIT licence.
 //
 
 import CoreGraphics

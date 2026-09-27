@@ -2,12 +2,13 @@
 //  ColorFormats.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 8/31/26.
-//
 //  CSS colour strings as pure functions. The HSL conversion is a real
 //  algorithm — hue sectors, the lightness-folded saturation — and an
 //  algorithm buried in a model property can only be tested by building
 //  the model around it.
+//
+//  Created by David Sherlock on 8/31/26.
+//  Copyright © 2026 ArrayPress Limited. MIT licence.
 //
 
 import Foundation

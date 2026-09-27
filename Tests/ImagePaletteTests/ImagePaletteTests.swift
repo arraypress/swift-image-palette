@@ -1,11 +1,12 @@
 //
 //  ImagePaletteTests.swift
-//  ImagePalette
-//
-//  Created by David Sherlock on 8/30/26.
+//  ImagePaletteTests
 //
 //  Synthetic pictures with known colours and known shares, so the numbers
 //  can be asserted rather than admired.
+//
+//  Created by David Sherlock on 8/30/26.
+//  Copyright © 2026 ArrayPress Limited. MIT licence.
 //
 
 import CoreGraphics

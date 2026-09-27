@@ -2,13 +2,14 @@
 //  PaletteExtractor.swift
 //  ImagePalette
 //
-//  Created by David Sherlock on 8/30/26.
-//
 //  Pixels to a palette: k-means in OKLab, seeded deterministically so the
 //  same picture gives the same palette on every run and every machine,
 //  then clusters the eye cannot tell apart are merged and slivers dropped.
 //  Shares are the fraction of sampled pixels nearest each colour — the
 //  percentages a designer asks for.
+//
+//  Created by David Sherlock on 8/30/26.
+//  Copyright © 2026 ArrayPress Limited. MIT licence.
 //
 
 import CoreGraphics
